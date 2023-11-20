@@ -1,16 +1,22 @@
 var palavras = [{
-    "tituloPt": "maçã",
-    "significadoPt": "lorem ipsum",
-    "tituloEn": "apple",
-    "significadoEn": "lorem ipsa"
+    tituloPt: "maçã",
+    significadoPt: "lorem ipsum",
+    tituloEn: "apple",
+    significadoEn: "lorem ipsa"
 },
 {
-    "tituloPt": "carro",
-    "significadoPt": "",
-    "tituloEn": "car",
-    "significadoEn": ""
+    tituloPt: "carro",
+    significadoPt: "",
+    tituloEn: "car",
+    significadoEn: ""
 }
 ];
+
+var audios = [{
+    audioPt: "assets/music/m1.mp3",
+    audioEn: ""
+}
+]
 
 let cartoes;
 
@@ -35,19 +41,14 @@ let criarCartao = (palavra) => {
 let mostrarModal = (palavra) => {
     if (palavra) {
         let modalContainer = document.getElementById('modal-container');
-        if (!modalContainer) {
-            modalContainer = document.createElement('div');
-            modalContainer.id = 'modal-container';
-            document.body.appendChild(modalContainer);
-        }
 
         modalContainer.innerHTML = '';
 
-        let modal = document.createElement('div');
-        modal.className = 'modal fade';
-        modal.setAttribute('tabindex', '-1');
-        modal.setAttribute('aria-labelledby', 'exampleModalLabel');
-        modal.setAttribute('aria-hidden', 'true');
+        let modalFade = document.createElement('div');
+        modalFade.className = 'modal fade';
+        modalFade.setAttribute('tabindex', '-1');
+        modalFade.setAttribute('aria-labelledby', 'exampleModalLabel');
+        modalFade.setAttribute('aria-hidden', 'true');
 
         let modalDialog = document.createElement('div');
         modalDialog.className = 'modal-dialog modal-dialog-centered';
@@ -90,13 +91,33 @@ let mostrarModal = (palavra) => {
         modalContent.appendChild(modalFooter);
         
         modalDialog.appendChild(modalContent);
-        modal.appendChild(modalDialog);
+        modalFade.appendChild(modalDialog);
 
-        modalContainer.appendChild(modal);
+        modalContainer.appendChild(modalFade);
 
     
-        let modalBootstrap = new bootstrap.Modal(modal);
-        modalBootstrap.show();
+        let modal = new bootstrap.Modal(modalFade);
+        modal.show();
+    }
+};
+
+const audio = new Audio();
+
+tocarAudio = () => {
+    let botaoPt = document.getElementById("botaoPt")
+    let botaoEn = document.getElementById("botaoEn")
+
+    let caminhoAudio;
+
+    if (botaoPt) {
+        caminhoAudio = audios[0].audioPt;
+    } else if (botaoEn) {
+        caminhoAudio = audios[0].audioEn;
+    }
+
+    if (caminhoAudio) {
+        audio.src = caminhoAudio;
+        audio.play();
     }
 };
 
@@ -111,6 +132,10 @@ let iniciar = () => {
     palavras.forEach((palavra) => {
         criarCartao(palavra);
     });
+
+    
 };
+
+
 
 iniciar();
