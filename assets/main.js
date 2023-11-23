@@ -16,7 +16,7 @@ var audios = [{
     audioPt: "assets/music/m1.mp3",
     audioEn: ""
 }
-]
+];
 
 let cartoes;
 
@@ -95,7 +95,6 @@ let mostrarModal = (palavra) => {
 
         modalContainer.appendChild(modalFade);
 
-    
         let modal = new bootstrap.Modal(modalFade);
         modal.show();
     }
@@ -107,15 +106,12 @@ tocarAudio = () => {
     let botaoPt = document.getElementById("botaoPt")
     let botaoEn = document.getElementById("botaoEn")
 
-    let caminhoAudio;
+    let caminhoAudio
 
-    if (botaoPt) {
-        caminhoAudio = audios[0].audioPt;
-    } else if (botaoEn) {
-        caminhoAudio = audios[0].audioEn;
-    }
-
-    if (caminhoAudio) {
+    botaoPt.addEventListener("click", caminhoAudio = audio.audioPt)
+    botaoPt.addEventListener("click", caminhoAudio = audio.audioEn)
+    
+    if (caminhoAudio) { 
         audio.src = caminhoAudio;
         audio.play();
     }
@@ -132,10 +128,6 @@ let iniciar = () => {
     palavras.forEach((palavra) => {
         criarCartao(palavra);
     });
-
-    
 };
-
-
 
 iniciar();
