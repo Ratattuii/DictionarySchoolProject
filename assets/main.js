@@ -1,20 +1,88 @@
 var palavras = [{
-    tituloPt: "maçã",
-    significadoPt: "lorem ipsum",
-    tituloEn: "apple",
-    significadoEn: "lorem ipsa"
+    tituloPt: "Trabalho",
+    significadoPt: "Qualquer trabalho, manual ou intelectual, que se faz por obrigação ou voluntariamente.",
+    audioPt: "assets/music/m1.mp3",
+    tituloEn: "Assignment",
+    significadoEn: "A task or piece of work assigned to someone as part of a job or course of study.",
+    audioEn: ""
 },
 {
-    tituloPt: "carro",
+    tituloPt: "Ferver",
     significadoPt: "",
-    tituloEn: "car",
-    significadoEn: ""
+    audioPt: "",
+    tituloEn: "Simmer",
+    significadoEn: "",
+    audioEn: ""
+},
+{
+    tituloPt: "Desmoronar",
+    significadoPt: "",
+    audioPt: "",
+    tituloEn: "Crumble",
+    significadoEn: "",
+    audioEn: ""
+},
+{
+    tituloPt: "Desmaiar",
+    significadoPt: "",
+    audioPt: "",
+    tituloEn: "Faint",
+    significadoEn: "",
+    audioEn: ""
+},
+{
+    tituloPt: "Luto",
+    significadoPt: "",
+    audioPt: "",
+    tituloEn: "Mourning",
+    significadoEn: "",
+    audioEn: ""
+},
+{
+    tituloPt: "Desejo",
+    significadoPt: "",
+    audioPt: "",
+    tituloEn: "Crave",
+    significadoEn: "",
+    audioEn: ""
+},
+{
+    tituloPt: "Vagar",
+    significadoPt: "",
+    audioPt: "",
+    tituloEn: "Wander",
+    significadoEn: "",
+    audioEn: ""
+},
+{
+    tituloPt: "Cemitério",
+    significadoPt: "",
+    audioPt: "",
+    tituloEn: "Graveyard",
+    significadoEn: "",
+    audioEn: ""
+},
+{
+    tituloPt: "Calafrios",
+    significadoPt: "",
+    audioPt: "",
+    tituloEn: "Chills",
+    significadoEn: "",
+    audioEn: ""
+},
+{
+    tituloPt: "Lustre",
+    significadoPt: "",
+    audioPt: "",
+    tituloEn: "Chandelier",
+    significadoEn: "",
+    audioEn: ""
 }
 ];
 
 var audios = [{
-    audioPt: "assets/music/m1.mp3",
-    audioEn: ""
+    
+    
 }
 ];
 
@@ -96,11 +164,11 @@ let mostrarModal = (palavra) => {
         modalContainer.appendChild(modalFade);
 
         let modal = new bootstrap.Modal(modalFade);
-        modal.show();
+        modal.show()
     }
 };
 
-const audio = new Audio();
+
 
 tocarAudio = () => {
     let botaoPt = document.getElementById("botaoPt")
@@ -108,13 +176,21 @@ tocarAudio = () => {
 
     let caminhoAudio
 
-    botaoPt.addEventListener("click", caminhoAudio = audio.audioPt)
-    botaoPt.addEventListener("click", caminhoAudio = audio.audioEn)
+    botaoPt.addEventListener("click", () => {
+        caminhoAudio = audios[0].audioPt;
+        if (caminhoAudio) {
+            audio.src = caminhoAudio;
+            audio.play();
+        }
+    });
     
-    if (caminhoAudio) { 
-        audio.src = caminhoAudio;
-        audio.play();
-    }
+    botaoEn.addEventListener("click", () => {
+        caminhoAudio = audios[0].audioEn;
+        if (caminhoAudio) {
+            audio.src = caminhoAudio;
+            audio.play();
+        }
+    });
 };
 
 
