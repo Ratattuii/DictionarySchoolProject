@@ -1,88 +1,72 @@
 var palavras = [{
-    tituloPt: "Trabalho",
-    significadoPt: "Qualquer trabalho, manual ou intelectual, que se faz por obrigação ou voluntariamente.",
-    audioPt: "assets/music/m1.mp3",
+    tituloPt: "Tarefa",
+    significadoPt: "Qualquer trabalho, manual ou intelectual, que se faz por obrigação ou voluntariamente. (substantivo)",
     tituloEn: "Assignment",
-    significadoEn: "A task or piece of work assigned to someone as part of a job or course of study.",
-    audioEn: ""
+    significadoEn: "A task or piece of work assigned to someone as part of a job or course of study. (noun)",
+    audioEn: "assets/music/Assignment.mp3"
 },
 {
     tituloPt: "Ferver",
-    significadoPt: "",
-    audioPt: "",
+    significadoPt: "Produzir ou entrar em estado de ebulição (falando de líquidos). (verbo)",
     tituloEn: "Simmer",
-    significadoEn: "",
-    audioEn: ""
+    significadoEn: "Stay just below the boiling point while being heated (water or food). (verb)",
+    audioEn: "assets/music/Simmer.mp3"
 },
 {
     tituloPt: "Desmoronar",
-    significadoPt: "",
-    audioPt: "",
+    significadoPt: "Pôr ou vir abaixo, fazer ruir ou ruir; desmantelar(-se). (verbo)",
     tituloEn: "Crumble",
-    significadoEn: "",
-    audioEn: ""
+    significadoEn: "Break or fall apart into small fragments, especially over a period of time as part of a process of deterioration. (verb)",
+    audioEn: "assets/music/Crumble.mp3"
 },
 {
     tituloPt: "Desmaiar",
-    significadoPt: "",
-    audioPt: "",
+    significadoPt: "Perder os sentidos; desfalecer. (verbo)",
     tituloEn: "Faint",
-    significadoEn: "",
-    audioEn: ""
+    significadoEn: "Lose consciousness for a short time because of a temporarily insufficient supply of oxygen to the brain. (verb)",
+    audioEn: "assets/music/Faint.mp3"
 },
 {
     tituloPt: "Luto",
-    significadoPt: "",
-    audioPt: "",
+    significadoPt: "Sentimento de tristeza profunda pela morte de alguém. (substantivo)",
     tituloEn: "Mourning",
-    significadoEn: "",
-    audioEn: ""
+    significadoEn: "The expression of deep sorrow for someone who has died, typically involving following certain conventions such as wearing black clothes. (noun)",
+    audioEn: "assets/music/Mourning.mp3"
 },
 {
     tituloPt: "Desejo",
-    significadoPt: "",
-    audioPt: "",
+    significadoPt: "Aspiração, querer, vontade. (substantivo)",
     tituloEn: "Crave",
-    significadoEn: "",
-    audioEn: ""
+    significadoEn: "Feel a powerful desire for (something). (verb)",
+    audioEn: "assets/music/Crave.mp3"
 },
 {
     tituloPt: "Vagar",
-    significadoPt: "",
-    audioPt: "",
+    significadoPt: "Andar sem rumo certo, perambular, vaguear. (verbo)",
     tituloEn: "Wander",
-    significadoEn: "",
-    audioEn: ""
+    significadoEn: "Walk or move in a leisurely, casual, or aimless way. (verb)",
+    audioEn: "assets/music/Wander.mp3"
 },
 {
     tituloPt: "Cemitério",
-    significadoPt: "",
-    audioPt: "",
+    significadoPt: "Espaço, terreno ou recinto em que se enterram e guardam cadáveres humanos. (substantivo)",
     tituloEn: "Graveyard",
-    significadoEn: "",
-    audioEn: ""
+    significadoEn: "A burial ground, especially one beside a church. (noun)",
+    audioEn: "assets/music/Graveyard.mp3"
 },
 {
     tituloPt: "Calafrios",
-    significadoPt: "",
-    audioPt: "",
+    significadoPt: "Sensação de frio e tremores fortes, às vezes com bater de dentes, que precedem ou acompanham acessos de febre. (substantivo)",
     tituloEn: "Chills",
-    significadoEn: "",
-    audioEn: ""
+    significadoEn: "Make (someone) cold. (verb)",
+    audioEn: "assets/music/Chills.mp3"
 },
 {
     tituloPt: "Lustre",
-    significadoPt: "",
-    audioPt: "",
+    significadoPt: "Espécie de grande castiçal, com muitos braços e lumes, suspenso do teto; candelabro. (substantivo)",
     tituloEn: "Chandelier",
-    significadoEn: "",
-    audioEn: ""
-}
-];
-
-var audios = [{
-    
-    
+    significadoEn: "A decorative hanging light with branches for several light bulbs or candles. (noun)",
+    audioEn: "assets/music/Chandelier.mp3"
 }
 ];
 
@@ -128,7 +112,7 @@ let mostrarModal = (palavra) => {
         headerPt.innerText = palavra.tituloPt;
         headerPt.className = 'modal-title fs-5 ps-2 pt-2';
 
-        let bodyPt = document.createElement('h6');
+        let bodyPt = document.createElement('p');
         bodyPt.innerText = palavra.significadoPt;
         bodyPt.className = 'modal-body';
 
@@ -136,9 +120,14 @@ let mostrarModal = (palavra) => {
         headerEn.innerText = palavra.tituloEn;
         headerEn.className = 'modal-title fs-5 ps-2';
 
-        let bodyEn = document.createElement('h6');
+        let bodyEn = document.createElement('p');
         bodyEn.innerText = palavra.significadoEn;
         bodyEn.className = 'modal-body';
+
+        let audio = document.createElement('audio');
+        audio.id = 'botaoEn';
+        audio.src = palavra.audioEn;
+        audio.controls = true;
 
         let modalFooter = document.createElement('div');
         modalFooter.className = 'modal-footer';
@@ -156,6 +145,7 @@ let mostrarModal = (palavra) => {
         
         modalContent.appendChild(headerEn);
         modalContent.appendChild(bodyEn);
+        modalContent.appendChild(audio);
         modalContent.appendChild(modalFooter);
         
         modalDialog.appendChild(modalContent);
@@ -165,34 +155,9 @@ let mostrarModal = (palavra) => {
 
         let modal = new bootstrap.Modal(modalFade);
         modal.show()
+        console.log(modalContent.innerHTML);
     }
 };
-
-
-
-tocarAudio = () => {
-    let botaoPt = document.getElementById("botaoPt")
-    let botaoEn = document.getElementById("botaoEn")
-
-    let caminhoAudio
-
-    botaoPt.addEventListener("click", () => {
-        caminhoAudio = audios[0].audioPt;
-        if (caminhoAudio) {
-            audio.src = caminhoAudio;
-            audio.play();
-        }
-    });
-    
-    botaoEn.addEventListener("click", () => {
-        caminhoAudio = audios[0].audioEn;
-        if (caminhoAudio) {
-            audio.src = caminhoAudio;
-            audio.play();
-        }
-    });
-};
-
 
 let iniciar = () => {
     if (cartoes) {
