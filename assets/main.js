@@ -81,7 +81,7 @@ let criarCartao = (palavra) => {
     cartaoBody.className = 'card-body';
 
     let titulo = document.createElement('h5');
-    titulo.innerText = palavra.tituloPt;
+    titulo.innerText = palavra.tituloEn;
     titulo.className = 'card-title';
 
     cartaoBody.appendChild(titulo);
@@ -91,6 +91,7 @@ let criarCartao = (palavra) => {
 }
 
 let mostrarModal = (palavra) => {
+    
     if (palavra) {
         let modalContainer = document.getElementById('modal-container');
 
