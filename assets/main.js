@@ -3,70 +3,80 @@ var palavras = [{
     significadoPt: "Qualquer trabalho, manual ou intelectual, que se faz por obrigação ou voluntariamente. (substantivo)",
     tituloEn: "Assignment",
     significadoEn: "A task or piece of work assigned to someone as part of a job or course of study. (noun)",
-    audioEn: "assets/music/Assignment.mp3"
+    audioEn: "assets/music/Assignment.mp3",
+    frasePt: "Onde está aquele trabalho que eu pedi para ontem?"
 },
 {
     tituloPt: "Ferver",
     significadoPt: "Produzir ou entrar em estado de ebulição (falando de líquidos). (verbo)",
     tituloEn: "Simmer",
     significadoEn: "Stay just below the boiling point while being heated (water or food). (verb)",
-    audioEn: "assets/music/Simmer.mp3"
+    audioEn: "assets/music/Simmer.mp3",
+    frasePt: "Responde Luan assim que a água começa a ferver."
 },
 {
     tituloPt: "Desmoronar",
     significadoPt: "Pôr ou vir abaixo, fazer ruir ou ruir; desmantelar(-se). (verbo)",
     tituloEn: "Crumble",
     significadoEn: "Break or fall apart into small fragments, especially over a period of time as part of a process of deterioration. (verb)",
-    audioEn: "assets/music/Crumble.mp3"
+    audioEn: "assets/music/Crumble.mp3",
+    frasePt: "Segundos após o castelo estava começando a desmoronar."
 },
 {
     tituloPt: "Desmaiar",
     significadoPt: "Perder os sentidos; desfalecer. (verbo)",
     tituloEn: "Faint",
     significadoEn: "Lose consciousness for a short time because of a temporarily insufficient supply of oxygen to the brain. (verb)",
-    audioEn: "assets/music/Faint.mp3"
+    audioEn: "assets/music/Faint.mp3",
+    frasePt: "Quando Luan olhou para trás viu Michael desmaiado no chão."
 },
 {
     tituloPt: "Luto",
     significadoPt: "Sentimento de tristeza profunda pela morte de alguém. (substantivo)",
     tituloEn: "Mourning",
     significadoEn: "The expression of deep sorrow for someone who has died, typically involving following certain conventions such as wearing black clothes. (noun)",
-    audioEn: "assets/music/Mourning.mp3"
+    audioEn: "assets/music/Mourning.mp3",
+    frasePt: "Agora ele estava em luto"
 },
 {
     tituloPt: "Desejo",
     significadoPt: "Aspiração, querer, vontade. (substantivo)",
     tituloEn: "Crave",
     significadoEn: "Feel a powerful desire for (something). (verb)",
-    audioEn: "assets/music/Crave.mp3"
+    audioEn: "assets/music/Crave.mp3",
+    frasePt: "Eu queria muito comer um ovo cozido agora."
 },
 {
     tituloPt: "Vagar",
     significadoPt: "Andar sem rumo certo, perambular, vaguear. (verbo)",
     tituloEn: "Wander",
     significadoEn: "Walk or move in a leisurely, casual, or aimless way. (verb)",
-    audioEn: "assets/music/Wander.mp3"
+    audioEn: "assets/music/Wander.mp3",
+    frasePt: "Então agora eu costumo ficar vagando pela escola de dia."
 },
 {
     tituloPt: "Cemitério",
     significadoPt: "Espaço, terreno ou recinto em que se enterram e guardam cadáveres humanos. (substantivo)",
     tituloEn: "Graveyard",
     significadoEn: "A burial ground, especially one beside a church. (noun)",
-    audioEn: "assets/music/Graveyard.mp3"
+    audioEn: "assets/music/Graveyard.mp3",
+    frasePt: "Também conseguiam ver um pequeno cemitério ao lado do castelo colossal."
 },
 {
     tituloPt: "Calafrios",
     significadoPt: "Sensação de frio e tremores fortes, às vezes com bater de dentes, que precedem ou acompanham acessos de febre. (substantivo)",
     tituloEn: "Chills",
     significadoEn: "Make (someone) cold. (verb)",
-    audioEn: "assets/music/Chills.mp3"
+    audioEn: "assets/music/Chills.mp3",
+    frasePt: "No momento em que Luan disse isso ele sentiu um calafrio descendo por sua espinha."
 },
 {
     tituloPt: "Lustre",
     significadoPt: "Espécie de grande castiçal, com muitos braços e lumes, suspenso do teto; candelabro. (substantivo)",
     tituloEn: "Chandelier",
     significadoEn: "A decorative hanging light with branches for several light bulbs or candles. (noun)",
-    audioEn: "assets/music/Chandelier.mp3"
+    audioEn: "assets/music/Chandelier.mp3",
+    frasePt: "Um lustre pendurado no teto"
 }
 ];
 
@@ -156,9 +166,20 @@ let mostrarModal = (palavra) => {
 
         let modal = new bootstrap.Modal(modalFade);
         modal.show()
-        console.log(modalContent.innerHTML);
     }
 };
+
+mostrarFrase = (palavra) => {
+    if (palavra) {
+        let divFrase = document.getElementById("frase-container")
+    
+        let frase = document.createElement('p');
+        frase.innerText = palavra.frasePt;
+    
+        divFrase.appendChild(frase);
+        console.log(divFrase.innerHTML);
+    }
+}
 
 let iniciar = () => {
     if (cartoes) {
@@ -169,6 +190,7 @@ let iniciar = () => {
     cartoes = document.getElementById('cartoes-container');
     palavras.forEach((palavra) => {
         criarCartao(palavra);
+        mostrarFrase(palavra);
     });
 };
 

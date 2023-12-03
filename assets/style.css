@@ -11,3 +11,23 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+#frase-container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#frase-container p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #495057;
+}
